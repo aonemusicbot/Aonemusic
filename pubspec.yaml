@@ -9,19 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # Firebase Dependencies
   firebase_core: ^2.15.0
   firebase_auth: ^4.7.0
   firebase_database: ^10.2.3
-  
-  # Cloudinary & File Upload (Updated version for Null Safety)
   cloudinary_public: ^0.2.1
   file_picker: ^5.3.3
-  
-  # Audio Player
   audioplayers: ^5.2.1
-  
-  # UI Icons
   cupertino_icons: ^1.0.5
 
 dev_dependencies:
