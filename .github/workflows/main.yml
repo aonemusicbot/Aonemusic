@@ -1,9 +1,34 @@
-dependencies:
-  flutter:
-    sdk: flutter
-  firebase_core: ^2.15.0
-  firebase_auth: ^4.7.0
-  firebase_database: ^10.2.3
-  cloudinary_public: ^0.2.0
-  audioplayers: ^5.2.1
-  file_picker: ^5.3.3
+name: Flutter Build APK
+
+on:
+  push:
+    branches: [ "main" ] # നിങ്ങളുടെ മെയിൻ ബ്രാഞ്ച് 'main' ആണെന്ന് ഉറപ്പുവരുത്തുക
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.10.0' # നിങ്ങളുടെ ഫ്ലട്ടർ വേർഷൻ ഇവിടെ നൽകാം
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk --release --no-tree-shake-icons
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: A-One-Music-App
+          path: build/app/outputs/flutter-apk/app-release.apk
