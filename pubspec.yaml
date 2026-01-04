@@ -9,18 +9,25 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # Firebase Dependencies
   firebase_core: ^2.15.0
   firebase_auth: ^4.7.0
   firebase_database: ^10.2.3
-  cloudinary_public: ^0.2.0
-  audioplayers: ^5.2.1
+  
+  # Cloudinary & File Upload (Updated version for Null Safety)
+  cloudinary_public: ^0.2.1
   file_picker: ^5.3.3
-  cupertino_icons: ^1.0.2
+  
+  # Audio Player
+  audioplayers: ^5.2.1
+  
+  # UI Icons
+  cupertino_icons: ^1.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true
